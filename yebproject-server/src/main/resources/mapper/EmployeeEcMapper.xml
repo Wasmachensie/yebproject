@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nuyoah.server.mapper.EmployeeEcMapper">
+
+    <resultMap id="BaseResultMap" type="com.nuyoah.server.pojo.EmployeeEc">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="eid" column="eid" jdbcType="INTEGER"/>
+            <result property="ecDate" column="ecDate" jdbcType="DATE"/>
+            <result property="ecReason" column="ecReason" jdbcType="VARCHAR"/>
+            <result property="ecPoint" column="ecPoint" jdbcType="INTEGER"/>
+            <result property="ecType" column="ecType" jdbcType="INTEGER"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,eid,ecDate,
+        ecReason,ecPoint,ecType,
+        remark
+    </sql>
+</mapper>

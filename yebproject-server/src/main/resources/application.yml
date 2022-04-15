@@ -1,0 +1,51 @@
+server:
+  port: 8081
+
+spring:
+  #数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.184.24:3306/yeb
+    username: root
+    password: 123123
+    hikari:
+      #连接池名字
+      pool-Name: DateHikariCPU
+      #连接池最小连接数
+      minimum-Idle: 5
+      #空闲连接最大存活时间，默认600000(10min)
+      idle-Timeout: 600000
+      #连接池最大连接数
+      maximum-Pool-Size: 10
+      #从连接池返回的连接的自动提交
+      auto-Commit: true
+      #连接最大存活时间，0表示永久存活，默认1800000(30min)
+      max-Lifetime: 1800000
+      #连接超时时间，默认30000(30s)
+      connection-Timeout: 30000
+      #测试连接的SQL
+      connection-Test-Query: SELECT 1
+  banner:
+    location: banner.txt
+mybatis-plus:
+  configuration:
+    #自动驼峰命名
+    map-underscore-to-camel-case: false
+  #配置mapper映射文件
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  #配置mybatis数据返回类型别名
+  type-aliases-package: com.nuyoah.server.pojo
+
+logging:
+  level:
+    com.xxxx.server.mapper: debug
+
+jwt:
+  #JWT存储的请求头
+  tokenHeader: Authorization
+  #JWT加解密秘钥
+  secret: yebproject-secret
+  #JWT超期时间(60*60*24)
+  expiration: 604800
+  #JWT负载中拿到开头
+  tokenHead: Bearer
