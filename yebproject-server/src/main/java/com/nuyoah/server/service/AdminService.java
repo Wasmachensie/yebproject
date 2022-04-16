@@ -2,6 +2,9 @@ package com.nuyoah.server.service;
 
 import com.nuyoah.server.pojo.Admin;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.nuyoah.server.pojo.RespBean;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
 * @author 12240
@@ -10,4 +13,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface AdminService extends IService<Admin> {
 
+    /**
+     * 登录之后返回token
+     * @param username
+     * @param password
+     * @param request
+     * @return
+     */
+    RespBean login(String username, String password, HttpServletRequest request);
+
+    /**
+     * 根据用户名获取用户
+     * @param username
+     * @return
+     */
+    Admin getAdminByUsername(String username);
 }
